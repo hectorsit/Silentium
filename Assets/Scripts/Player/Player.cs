@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
         if (interactiveGameObject != null)
         {
             Debug.Log("ENTRO DEFINITIVAMENTE");
-            InventoryManager.instance.AddItem(interactiveGameObject.GetComponent<PickItem>().item);
+            InventoryManager.instance.AddItem(interactiveGameObject.GetComponent<PickItem>());
             Debug.Log("QUE COJO?" + interactiveGameObject.GetComponent<PickItem>().item);
             interactiveGameObject.gameObject.SetActive(false);
             Debug.Log("Entro Coger item");

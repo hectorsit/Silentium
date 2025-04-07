@@ -24,14 +24,14 @@ public class InventorySO : ScriptableObject
         public bool stackable;
 
 
-        public ItemSlot(Item obj)
+        public ItemSlot(PickItem obj)
         {
-            item.item = obj;
+            item = obj;
             amount = 1;
         }
     }
 
-    public void UseItem(Item usedItem)
+    public void UseItem(PickItem usedItem)
     {
         ItemSlot item = GetItem(usedItem);
         if (item == null)
@@ -43,14 +43,14 @@ public class InventorySO : ScriptableObject
 
     }
 
-    public void AddItem(Item usedItem)
+    public void AddItem(PickItem usedItem)
     {
         ItemSlot item = GetItem(usedItem);
         if (item == null)
         {
             items.Add(new ItemSlot(usedItem));
         }
-        else if (!usedItem.isStackable)
+        else if (!usedItem.item.isStackable)
         {
             items.Add(new ItemSlot(usedItem));
         }
@@ -61,7 +61,7 @@ public class InventorySO : ScriptableObject
 
     }
 
-    private ItemSlot GetItem(Item item)
+    private ItemSlot GetItem(PickItem item)
     {
         foreach (ItemSlot slot in items)
         {

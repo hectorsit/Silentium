@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance { get; private set; }
 
-    [SerializeField] private Item itemSelected;
+    [SerializeField] private PickItem itemSelected;
 
     [SerializeField] GameObject buttonsActionRoot;
 
@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] InventorySO inventory;
     public bool isCombining { get; private set; }
-    private Item targetItemToCombine;
+    private PickItem targetItemToCombine;
     private void Awake()
     {
         if (instance == null)
@@ -41,7 +41,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ItemSelected(Item item)
     {
-        itemSelected = item;
+        itemSelected.item = item;
         ChangeSelectedItem();
         //inventoryUI.GetComponent<ShowInventory>().ItemSelected(itemSelected);
         ChangeState(ActionStates.SELECT_ACTION);
@@ -60,9 +60,9 @@ public class InventoryManager : MonoBehaviour
     {
         if (itemSelected != null)
         {
-            buttonsActionRoot.transform.GetChild(0).GetComponent<Button>().interactable = itemSelected.isUsable ? true : false;
-            buttonsActionRoot.transform.GetChild(1).GetComponent<Button>().interactable = itemSelected.isEquipable ? true : false;
-            buttonsActionRoot.transform.GetChild(2).GetComponent<Button>().interactable = itemSelected.isCombinable ? true : false;
+            buttonsActionRoot.transform.GetChild(0).GetComponent<Button>().interactable = itemSelected.item.isUsable ? true : false;
+            buttonsActionRoot.transform.GetChild(1).GetComponent<Button>().interactable = itemSelected.item.isEquipable ? true : false;
+            buttonsActionRoot.transform.GetChild(2).GetComponent<Button>().interactable = itemSelected.item.isCombinable ? true : false;
         }
     }
 
@@ -80,11 +80,11 @@ public class InventoryManager : MonoBehaviour
 
                 break;
             case ActionStates.ACTION_USE:
-                itemSelected.Use();
+                itemSelected.item.Use();
                 ChangeState(ActionStates.NOACTION);
                 break;
             case ActionStates.ACTION_COMBINE:
-                inventoryUI.ShowHideItemsToCombine(itemSelected.combinableItems, itemSelected);
+                inventoryUI.ShowHideItemsToCombine(itemSelected.item.combinableItems, itemSelected.item);
                 ChangeState(ActionStates.ACTION_COMBINE_SELECT);
                 break;
             case ActionStates.ACTION_COMBINE_SELECT:
@@ -92,7 +92,7 @@ public class InventoryManager : MonoBehaviour
                 ToggleHabilitateButtons(false);
                 break;
             case ActionStates.ACTION_EQUIP_ITEM:
-                itemSelected.Equip();
+                itemSelected.item.Equip();
                 ChangeState(ActionStates.NOACTION);
                 break;
         }
@@ -128,17 +128,17 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SelectItemToCombine(Item item)
+    public void SelectItemToCombine(PickItem item)
     {
         targetItemToCombine=item;
-        itemSelected.Combine(targetItemToCombine);
+        itemSelected.item.Combine(targetItemToCombine.item);
     }
 
     public void AddNewItemAfterCombine(Item newItem)
     {
         inventory.UseItem(itemSelected);
         inventory.UseItem(targetItemToCombine);
-        inventory.AddItem(newItem);
+        //inventory.AddItem();
         inventoryUI.Show();
         ChangeState(ActionStates.NOACTION);
 
@@ -159,7 +159,7 @@ public class InventoryManager : MonoBehaviour
         ChangeState(ActionStates.ACTION_EQUIP_ITEM);
     }
 
-    public void AddItem(Item item)
+    public void AddItem(PickItem item)
     {
         inventory.AddItem(item);
         Debug.Log("Afegeixo item " + item.name);
@@ -182,23 +182,23 @@ public class InventoryManager : MonoBehaviour
     {
         //player.hp+=curacion;
         Debug.Log("Player usa item de curacion");
-        inventory.UseItem(item);
+        //inventory.UseItem(item);
     }
 
     public void UseAmmo(int numAmmo, Item item)
     {
         //player.RecarregaBales(numBales);
         Debug.Log("Player recarrega les bales");
-        inventory.UseItem(item);
+        //inventory.UseItem(item);
     }
     public void UseKeyItem(Item item)
     {
-        inventory.UseItem(item);
+        //inventory.UseItem(item);
     }
 
     public void EquipThrowableItem(Item item, GameObject equipableObject)
     {
-        inventory.UseItem(item);
+        //inventory.UseItem(item);
         player.EquipItem(equipableObject);
     }
 

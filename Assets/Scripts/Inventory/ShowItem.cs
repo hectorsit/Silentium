@@ -9,11 +9,11 @@ public class ShowItem : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textQuantitat;
     public event Action OnUseItem;
-    Item selectedItem;
+    PickItem selectedItem;
 
     public void Load(InventorySO.ItemSlot item)
     {
-        this.GetComponent<Image>().sprite=item.item.Sprite;
+        this.GetComponent<Image>().sprite=item.item.item.Sprite;
         this.textQuantitat.text=item.amount.ToString();
         selectedItem=item.item;
     }
@@ -24,7 +24,7 @@ public class ShowItem : MonoBehaviour
         {
             Debug.Log("Clico Item");
             InventoryManager.instance.ChangeSelectedItem();
-            InventoryManager.instance.ItemSelected(selectedItem);
+            InventoryManager.instance.ItemSelected(selectedItem.item);
             this.GetComponent<Image>().color = Color.magenta;
         }
         else
