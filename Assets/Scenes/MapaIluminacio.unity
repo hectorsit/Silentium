@@ -5332,6 +5332,7 @@ MonoBehaviour:
   notesPanelScroll: {fileID: 548701773}
   imagePanel: {fileID: 792282322}
   bookPanel: {fileID: 1911171150}
+  postProcessEvents: {fileID: 0}
   actionState: 0
 --- !u!4 &78998835
 Transform:
@@ -5569,14 +5570,14 @@ MonoBehaviour:
     m_Bits: 525312
   _DetectionSphere: {fileID: 1177688284}
   _Waypoints:
-  - {x: -17.8, y: 0, z: 92.66}
-  - {x: -3.87, y: 0, z: 95.05}
-  - {x: 10.84, y: 0, z: 72.83}
-  - {x: -20.61, y: 0, z: 55.91}
-  - {x: 1.8, y: 0, z: 31.7}
-  - {x: -18.05, y: 0, z: 48.64}
-  - {x: -22.87, y: 0, z: 39.93}
-  - {x: -22.8, y: 0, z: 18.9}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _Patrolling: 0
   _Search: 0
 --- !u!195 &81646037
@@ -8348,6 +8349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &133574126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17119,7 +17122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &233435456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40194,6 +40197,37 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 4
+--- !u!1 &572212962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572212963}
+  m_Layer: 0
+  m_Name: Decoration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572212963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572212962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.4915495, y: 1.2141259, z: 66.01094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &573197536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43239,6 +43273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &606992475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43544,14 +43580,14 @@ MonoBehaviour:
     m_Bits: 525312
   _DetectionSphere: {fileID: 1690069508}
   _Waypoints:
-  - {x: -68.87, y: 0, z: -14.86}
-  - {x: -37.1, y: 0, z: -7.5}
-  - {x: -50.25, y: 0, z: -41.51}
-  - {x: -31.7, y: 0, z: -52.5}
-  - {x: -27.3, y: 0, z: 0}
-  - {x: -34.5, y: 0, z: -20.5}
-  - {x: -54.1, y: 0, z: -11.8}
-  - {x: -61.7, y: 0, z: -41.7}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &609012775
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -45606,6 +45642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &643106676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60027,6 +60065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &873761248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82819,7 +82859,6 @@ MonoBehaviour:
   interactLayerMask:
     serializedVersion: 2
     m_Bits: 1572352
-  weaponCamera: {fileID: 1512291401}
   interactiveGameObject: {fileID: 0}
   material: {fileID: 2100000, guid: 245be0caa7e11f441a60e9ec2a7f78e5, type: 2}
   baseMaterial: {fileID: 0}
@@ -82836,6 +82875,14 @@ MonoBehaviour:
   picture: 0
   morse: 0
   silencer: {fileID: 0}
+  gunAimPosition: {fileID: 0}
+  gunAimFov: 0
+  aimSpeed: 0
+  currentFov: 0
+  gunanimator: {fileID: 0}
+  events: {fileID: 0}
+  menuManager: {fileID: 0}
+  waves: {fileID: 0}
   actualState: 0
   stateTime: 0
 --- !u!54 &965014587
@@ -90601,6 +90648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1063594313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205430,15 +205479,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 525312
   _DetectionSphere: {fileID: 55939477}
-  _Waypoints:
-  - {x: -22.72, y: 2.671, z: -25.08}
-  - {x: -36.721, y: 0, z: 9.6}
-  - {x: -42.57, y: 1.436, z: 16.879}
-  - {x: -67.84, y: 0, z: 0}
-  - {x: -58.216, y: 2.864, z: 12.576}
-  - {x: 3.932, y: 1.674, z: 19.79}
-  - {x: 0, y: 2.605, z: 53.234}
-  - {x: -22.79, y: 0, z: 53.18}
+  _WaypointsFirstPart: []
+  _WaypointsSecondPart: []
+  _DoorLocked: {fileID: 0}
   _Patrolling: 0
   _Search: 0
 --- !u!195 &1104787117
@@ -217535,6 +217578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1210400923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -235580,6 +235625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1329790552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -243954,6 +244001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1423054178
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245438,6 +245487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1444496221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249737,6 +249788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1495693814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -252112,6 +252165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1532269700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253585,6 +253640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1547521507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256851,6 +256908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1575386198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -258648,7 +258707,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.106486544
+  m_Intensity: 130000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -258774,10 +258833,10 @@ MonoBehaviour:
   moonPhase: 0.2
   moonPhaseRotation: 0
   earthshine: 1
-  flareSize: 2
+  flareSize: 0
   flareTint: {r: 1, g: 1, b: 1, a: 1}
   flareFalloff: 4
-  flareMultiplier: 1
+  flareMultiplier: 0.01
   surfaceTexture: {fileID: 0}
   surfaceTint: {r: 1, g: 1, b: 1, a: 1}
   m_Distance: 1.5e+11
@@ -273088,11 +273147,16 @@ MonoBehaviour:
   cam_Clock: {fileID: 55821011}
   cam_Player: {fileID: 965646214}
   cam_Hierogliphic: {fileID: 1085465183}
-  cam_WeaponPuzzle: {fileID: 1512291401}
   doorsHieroglyphic: {fileID: 7400000, guid: 6cbddba0b33492d449e43cbf30ead5d7, type: 2}
   hieroglyphicAnimator: {fileID: 2041666758}
   cam_HieroglyphicAnimation: {fileID: 2101336230}
   bookPuzzle: {fileID: 64717731}
+  bookWall: {fileID: 319863465}
+  book1: {fileID: 0}
+  book2: {fileID: 0}
+  book3: {fileID: 0}
+  book4: {fileID: 0}
+  book5: {fileID: 0}
   pictureList:
   - {fileID: 1635748939}
   - {fileID: 1818907917}
@@ -273105,16 +273169,23 @@ MonoBehaviour:
   morseKeypad: {fileID: 396677601}
   cam_doorsMorseAnimation: {fileID: 1038295316}
   doorsMorseAnimation: {fileID: 7400000, guid: 6d3d20179d636ed4ab4392ffd19a75b8, type: 2}
-  animator: {fileID: 0}
   morseAnimator: {fileID: 746997956}
+  cam_WeaponPuzzle: {fileID: 1512291401}
   allWeapon: {fileID: 0}
-  isHieroglyphicCompleted: 0
-  fadeOut: {fileID: 7400000, guid: 6c9e933d9f7bb1d40a676cf34c03d849, type: 2}
-  fadeAnimator: {fileID: 1764515593}
-  bookWall: {fileID: 319863465}
+  glitchEffect: {fileID: 0}
+  glitchAnimator: {fileID: 0}
+  glitchStarted: 0
   positionAfterHieroglyphic: {fileID: 143491624}
   positionAfterBook: {fileID: 1044963158}
   positionAfterPoem: {fileID: 0}
+  fadeOut: {fileID: 7400000, guid: 6c9e933d9f7bb1d40a676cf34c03d849, type: 2}
+  fadeAnimator: {fileID: 1764515593}
+  material: {fileID: 0}
+  noiseAmount: 0
+  glitchStrength: 0
+  scanLinesStrength: 0
+  FlickeringStrength: 0
+  events: {fileID: 0}
 --- !u!4 &1816956908
 Transform:
   m_ObjectHideFlags: 0
@@ -275125,6 +275196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1842613798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -277196,6 +277269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &1877931426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -282584,80 +282659,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e46d2393531446428690b5a5f21645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Enable: 1
+  m_Enable: 0
   m_Material: {fileID: 1840036823}
   m_OutputDisplay: 0
-  m_InputLayers:
-  - m_LayerName: BaseLayer
-    m_OutputTarget: 0
-    m_ClearDepth: 0
-    m_ClearAlpha: 1
-    m_OutputRenderer: {fileID: 0}
-    m_Type: 0
-    m_Camera: {fileID: 0}
-    m_InputVideo: {fileID: 0}
-    m_InputTexture: {fileID: 0}
-    m_BackgroundFit: 0
-    m_ResolutionScale: 1
-    m_ColorBufferFormat: 48
-    m_OverrideAntialiasing: 0
-    m_Antialiasing: 0
-    m_OverrideClearMode: 0
-    m_ClearMode: 1
-    m_OverrideCullingMask: 0
-    m_CullingMask:
-      serializedVersion: 2
-      m_Bits: 0
-    m_OverrideVolumeMask: 0
-    m_VolumeMask:
-      serializedVersion: 2
-      m_Bits: 0
-    m_LayerPositionInStack: 0
-    m_InputFilters: []
-    m_AOVBitmask: 0
-    m_AOVRenderTargets: []
-    m_RenderTarget: {fileID: 608475576}
-    m_ClearsBackGround: 0
-    m_Show: 1
-    m_LayerCamera: {fileID: 0}
-    m_AlphaMin: 0
-    m_AlphaMax: 1
-  - m_LayerName: New SubLayer
-    m_OutputTarget: 1
-    m_ClearDepth: 1
-    m_ClearAlpha: 1
-    m_OutputRenderer: {fileID: 0}
-    m_Type: 0
-    m_Camera: {fileID: 104967937}
-    m_InputVideo: {fileID: 0}
-    m_InputTexture: {fileID: 0}
-    m_BackgroundFit: 0
-    m_ResolutionScale: 1
-    m_ColorBufferFormat: 48
-    m_OverrideAntialiasing: 0
-    m_Antialiasing: 0
-    m_OverrideClearMode: 0
-    m_ClearMode: 1
-    m_OverrideCullingMask: 0
-    m_CullingMask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    m_OverrideVolumeMask: 0
-    m_VolumeMask:
-      serializedVersion: 2
-      m_Bits: 0
-    m_LayerPositionInStack: 0
-    m_InputFilters: []
-    m_AOVBitmask: 0
-    m_AOVRenderTargets: []
-    m_RenderTarget: {fileID: 0}
-    m_ClearsBackGround: 0
-    m_Show: 1
-    m_LayerCamera: {fileID: 104967937}
-    m_AlphaMin: 0
-    m_AlphaMax: 1
+  m_InputLayers: []
   m_Shader: {fileID: -6465566751694194690, guid: 12999564c499ac84bbce3dd019f2b0c0, type: 3}
-  m_CompositionProfile: {fileID: 11400000, guid: ed5a55b8a7ce86f43800f6b43ef4f3a9, type: 2}
+  m_CompositionProfile: {fileID: 0}
   m_OutputCamera: {fileID: 1252310335}
 --- !u!4 &1947400186
 Transform:
@@ -295245,6 +295252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   book: {fileID: 0}
+  bookGO: {fileID: 0}
+  cellId: 0
 --- !u!65 &2116770422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -298912,3 +298921,4 @@ SceneRoots:
   - {fileID: 1645506477}
   - {fileID: 1947400186}
   - {fileID: 1252310336}
+  - {fileID: 572212963}
