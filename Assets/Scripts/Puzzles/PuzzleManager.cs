@@ -138,13 +138,15 @@ public class PuzzleManager : MonoBehaviour
     private Events events;
 
     [Header("Audio")]
-    private AudioSource glitchAudioSource;
+    private AudioSource puzzlesAudioSource;
     [SerializeField]
     AudioClip glitchAudio;
+    [SerializeField]
+    AudioClip poemPuzzleAudio;
 
     private void Awake()
     {
-        glitchAudioSource = this.GetComponent<AudioSource>();
+        puzzlesAudioSource = this.GetComponent<AudioSource>();
         inputActionPlayer = new InputSystem_Actions();
         if (instance == null)
             instance = this;
@@ -367,13 +369,14 @@ public class PuzzleManager : MonoBehaviour
                 {
                     for (int x = 0; x < picturesClicked.Count; x++)
                     {
+                        puzzlesAudioSource.PlayOneShot(poemPuzzleAudio);
                         pictureList.ElementAt(x).GetComponent<InteractuablePicture>().isInteractuable = false;
                     }
                     DoorPoem3.isLocked = false;
                     events.ToggleUI(false);
                     player.ToggleInputPlayer(false, false);
                     positionToTeleport = positionAfterPoem;
-                    glitchAudioSource.PlayOneShot(glitchAudio);
+                    puzzlesAudioSource.PlayOneShot(glitchAudio);
                     glitchAnimator.Play("Glitch");
                     glitchStarted = true;
                     animationTime = 0f;
@@ -481,7 +484,7 @@ public class PuzzleManager : MonoBehaviour
     {
         player.ToggleInputPlayer(false, false);
         glitchAnimator.Play("Glitch");
-        glitchAudioSource.PlayOneShot(glitchAudio);
+        puzzlesAudioSource.PlayOneShot(glitchAudio);
         glitchStarted = true;
         animationTime = 0f;
         positionToTeleport = positionAfterHieroglyphic;

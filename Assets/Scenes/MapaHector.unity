@@ -85635,7 +85635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1021777048
 Transform:
   m_ObjectHideFlags: 0
@@ -157876,8 +157876,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716633660}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.011915576, y: -0.73243254, z: -0.0068729017, w: -0.6807006}
-  m_LocalPosition: {x: 21.494417, y: 1.5192344, z: -4.8047395}
+  m_LocalRotation: {x: 0.056363933, y: 0.71054184, z: -0.04414994, w: 0.700003}
+  m_LocalPosition: {x: 19.720451, y: 1.4550374, z: 77.66232}
   m_LocalScale: {x: 0.78, y: 0.78, z: 0.78}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -166384,6 +166384,7 @@ MonoBehaviour:
   FlickeringStrength: 0
   events: {fileID: 11400000, guid: f00603c9116a40e4d91df0c25019e760, type: 2}
   glitchAudio: {fileID: 8300000, guid: 48300f09f4e2e484f91de86a7acfc7de, type: 3}
+  poemPuzzleAudio: {fileID: 8300000, guid: 26a1a625f307a0c4fa9b45a359dd5ab0, type: 3}
 --- !u!4 &1816956908
 Transform:
   m_ObjectHideFlags: 0
