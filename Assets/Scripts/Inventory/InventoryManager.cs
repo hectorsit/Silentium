@@ -507,7 +507,10 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    chestInventory.AddItem(itemSelected);
+                    for (int i = 0; i < itemToStore.amount / 6; i++)
+                    {
+                        chestInventory.AddItem(itemSelected);
+                    }
                 }
             }
             else
@@ -537,7 +540,10 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    inventory.AddItem(item);
+                    for (int i = 0; i < itemToReturn.amount / 6; i++)
+                    {
+                        inventory.AddItem(item);
+                    }
                 }
             }
             else
