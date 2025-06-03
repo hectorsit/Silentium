@@ -494,11 +494,29 @@ public class InventoryManager : MonoBehaviour
 
     public void StoreInChest()
     {
-        InventorySO.ItemSlot itemToStore = inventory.GetItem(itemSelected);
-        inventory.items.Remove(itemToStore);
-        for (int i = 0; i < itemToStore.amount; i++)
+        if (chestInventory.items.Count < 12)
         {
-            chestInventory.AddItem(itemSelected);
+            InventorySO.ItemSlot itemToStore = inventory.GetItem(itemSelected);
+            inventory.items.Remove(itemToStore);
+            if (itemToStore.item is AmmunitionItem)
+            {
+                if (chestInventory.items.Contains(itemToStore))
+                {
+                    InventorySO.ItemSlot itemInChest = chestInventory.GetItem(itemSelected);
+                    itemInChest.amount += itemToStore.amount;
+                }
+                else
+                {
+                    chestInventory.AddItem(itemSelected);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < itemToStore.amount; i++)
+                {
+                    chestInventory.AddItem(itemSelected);
+                }
+            }
         }
         inventoryUI.Show();
         ChangeState(ActionStates.CHEST_OPENED);
@@ -506,11 +524,29 @@ public class InventoryManager : MonoBehaviour
 
     public void SelectChestItem(Item item)
     {
-        InventorySO.ItemSlot itemToReturn= chestInventory.GetItem(item);
-        chestInventory.items.Remove(itemToReturn);
-        for (int i=0;i< itemToReturn.amount; i++)
+        if (inventory.items.Count < 6)
         {
-            inventory.AddItem(item);
+            InventorySO.ItemSlot itemToReturn= chestInventory.GetItem(item);
+            chestInventory.items.Remove(itemToReturn);
+            if (itemToReturn.item is AmmunitionItem)
+            {
+                if (inventory.items.Contains(itemToReturn))
+                {
+                    InventorySO.ItemSlot itemInInventory = inventory.GetItem(item);
+                    itemInInventory.amount += itemToReturn.amount;
+                }
+                else
+                {
+                    inventory.AddItem(item);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < itemToReturn.amount; i++)
+                {
+                    inventory.AddItem(item);
+                }
+            }
         }
         inventoryUI.Show();
     }
