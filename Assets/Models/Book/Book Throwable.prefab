@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f07a38bd5b3d904190164275e961850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundIntensity: 6
+  soundIntensity: 10
   camaraPrimera: {fileID: 0}
   events: {fileID: 11400000, guid: f00603c9116a40e4d91df0c25019e760, type: 2}

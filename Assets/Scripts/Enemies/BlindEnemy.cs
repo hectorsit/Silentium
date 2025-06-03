@@ -349,12 +349,12 @@ public class BlindEnemy : Enemy
                     Vector3 end = _SoundPos;
                     
                     _Rigidbody.AddForce((end - start) * 140);
-                    OnJump?.Invoke();
 
                     //No necessiten comprovació ja que només entrarà aquí quan pugui tornar a saltar,
                     //que es recupera quan acaba la corutina de RecoverJump
                     _BlindAudioSource.PlayOneShot(_blindAttackAudioClip);
                     StartCoroutine(RecoverJump());
+                    StartCoroutine(DelayRecover());
                 }
                 //Si la distància és massa gran només anirà fins al punt d'orígen del so.
                 else if (Vector3.Distance(_SoundPos, transform.position) > 8)
@@ -422,6 +422,12 @@ public class BlindEnemy : Enemy
     public void ActivatePatrol()
     {
         ChangeState(EnemyStates.PATROL);
+    }
+    
+    IEnumerator DelayRecover()
+    {
+        yield return new WaitForSeconds(0.3f);
+        OnJump?.Invoke();
     }
     
     IEnumerator RecoverJump()

@@ -467,6 +467,7 @@ public class PuzzleManager : MonoBehaviour
         glitchStarted = true;
         animationTime = 0f;
         positionToTeleport = positionAfterHieroglyphic;
+        events.ToggleUI(false);
     }
 
     public void LoadGame()
